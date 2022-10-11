@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://karpinski.tech/</loc>
+    <lastmod>2022-10-11T12:00:19+02:00</lastmod>
+  </url><url>
+    <loc>https://karpinski.tech/posts/</loc>
+    <lastmod>2022-10-11T12:00:19+02:00</lastmod>
+  </url><url>
+    <loc>https://karpinski.tech/posts/01.hello_world/</loc>
+    <lastmod>2022-10-11T12:00:19+02:00</lastmod>
+  </url><url>
+    <loc>https://karpinski.tech/categories/</loc>
+  </url><url>
+    <loc>https://karpinski.tech/tags/</loc>
+  </url>
+</urlset>
