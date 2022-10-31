@@ -5,8 +5,18 @@
     <link>https://www.karpinski.tech/posts/</link>
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pl</language>
-    <lastBuildDate>Tue, 11 Oct 2022 12:00:19 +0200</lastBuildDate><atom:link href="https://www.karpinski.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>pl-PL</language>
+    <lastBuildDate>Mon, 31 Oct 2022 12:56:54 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aktualizacja strony!</title>
+      <link>https://www.karpinski.tech/posts/02.site_update/</link>
+      <pubDate>Mon, 31 Oct 2022 12:56:54 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/posts/02.site_update/</guid>
+      <description>Dodałem w nagłówku przyciski z linkami do social mediów, poprawiłem również format wyświetlanej daty. Włączyłem również emoji 😀
+Domyślny format daty był ustawiony na sztywno więc trzeba było go nadpisać żeby używał podanego formatu w pliku konfiguracyjnym. Zgłosiłem na upstream issue 😀</description>
+    </item>
+    
     <item>
       <title>Witaj Świecie!</title>
       <link>https://www.karpinski.tech/posts/01.hello_world/</link>
