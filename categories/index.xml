@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Maciej Karpiński</title>
     <link>https://www.karpinski.tech/categories/</link>
     <description>Recent content in Categories on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pl-PL</language><atom:link href="https://www.karpinski.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>pl-PL</language>
+    <lastBuildDate>Fri, 27 Jan 2023 09:20:08 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WWW</title>
+      <link>https://www.karpinski.tech/categories/www/</link>
+      <pubDate>Fri, 27 Jan 2023 09:20:08 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/categories/www/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
