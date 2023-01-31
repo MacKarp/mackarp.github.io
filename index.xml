@@ -9,11 +9,11 @@
     <lastBuildDate>Fri, 27 Jan 2023 09:20:08 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Strona WWW</title>
-      <link>https://www.karpinski.tech/01.strona_www/</link>
+      <link>https://www.karpinski.tech/projekty/01.strona_www/</link>
       <pubDate>Fri, 27 Jan 2023 09:20:08 +0100</pubDate>
       
-      <guid>https://www.karpinski.tech/01.strona_www/</guid>
-      <description></description>
+      <guid>https://www.karpinski.tech/projekty/01.strona_www/</guid>
+      <description>Prosta strona stworzona przy użyciu Hugo i motywu PaperMod w celu zebrania w jednym miejscu informacji na temat projektów w których brałem udział.</description>
     </item>
     
     
