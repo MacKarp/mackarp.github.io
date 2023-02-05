@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Fri, 27 Jan 2023 09:20:08 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 12:24:36 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://www.karpinski.tech/tags/linux/</link>
+      <pubDate>Sun, 05 Feb 2023 12:24:36 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Networking</title>
+      <link>https://www.karpinski.tech/tags/networking/</link>
+      <pubDate>Sun, 05 Feb 2023 12:24:36 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nextcloud</title>
+      <link>https://www.karpinski.tech/tags/nextcloud/</link>
+      <pubDate>Sun, 05 Feb 2023 12:24:36 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/nextcloud/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Hugo</title>
       <link>https://www.karpinski.tech/tags/hugo/</link>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pl" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Domowy serwerk | Maciej Karpiński</title>
+<meta name="keywords" content="Linux, Networking, Nextcloud">
+<meta name="description" content="Wstęp Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021 roku na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików.
+Wymagania pracy dyplomowej:
+ System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo  Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi.">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.karpinski.tech/projekty/02.serwer/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.karpinski.tech/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.karpinski.tech/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.karpinski.tech/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.karpinski.tech/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.karpinski.tech/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Domowy serwerk" />
+<meta property="og:description" content="Wstęp Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021 roku na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików.
+Wymagania pracy dyplomowej:
+ System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo  Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.karpinski.tech/projekty/02.serwer/" /><meta property="article:section" content="projekty" />
+<meta property="article:published_time" content="2023-02-05T12:24:36+01:00" />
+<meta property="article:modified_time" content="2023-02-05T12:24:36+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Domowy serwerk"/>
+<meta name="twitter:description" content="Wstęp Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021 roku na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików.
+Wymagania pracy dyplomowej:
+ System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo  Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projekty",
+      "item": "https://www.karpinski.tech/projekty/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Domowy serwerk",
+      "item": "https://www.karpinski.tech/projekty/02.serwer/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Domowy serwerk",
+  "name": "Domowy serwerk",
+  "description": "Wstęp Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021 roku na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików.\nWymagania pracy dyplomowej:\n System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo  Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi.",
+  "keywords": [
+    "Linux", "Networking", "Nextcloud"
+  ],
+  "articleBody": "Wstęp Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021 roku na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików.\nWymagania pracy dyplomowej:\n System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo  Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi. Wcześniej nie miałem okazji „pobawić” się SBC – zawsze uważałem je za gadżet więc i nie wiedziałem jak bardzo pod względem możliwości rozwinęła się ta część IT. Wybór SBC powodował, że jednocześnie miałem załatwioną kwestię niskiego zużycia energii i zachowania kompaktowych wymiarów, z drugiej strony SBC często wykorzystują procesory o architekturze ARM a ta poza telefonami z androidem była dla mnie zupełnie nieznana. Zmiana architektury nie byłaby dla mnie minus a wręcz plusem, w końcu mógłbym zrobić coś nowego niż złożenie kolejnego zestawu na x86-64, poprzedni raz taką zmianę w architekturze dokonałem w okolicach 2000r gdzie przesiadłem się z Amigi 600 na PC. Dużym minusem wszystkich SBC, jakie oglądałem była mała liczba (max 2) lub całkowity brak portów SATA, co uniemożliwiało utworzenie sensownej macierzy dyskowej, a którą mimo braku w wymaganiach chciałem mieć. Szukając informacji jak sensownie podłączyć (nie przez USB!) większą ilość dysków trafiłem na SBC RockPi4 i nakładki Quad i Penta SATA Kit, obie nakładki pozwalają na podłączenie 4 dysków(5 w przypadku Penta) co już pozwala na utworzenie macierzy RAID 5, a to już mnie zadowalało. Kolejnym elementem był wybór twardych dysków, chciałem, żeby były to dyski 2,5” i żeby cena za 1GB była jak najmniejsza. Wybór padł więc na dedykowane dla systemów NAS dyski WD Red Plus o pojemności 1TB z myślą o przyszłej wymianie na pojemniejsze dyski SSD – gdy ich ceny będą korzystniejsze.\nDo realizacji projektu wybrałem:\n Rock Pi 4 Model A z 4GB RAM Penta SATA KIT Moduł eMMC 64GB 4x NAS WD Red™ Plus 2,5” WD10JFCX  Software Wymagania pracy były dosyć jasne wystarczyło więc tylko dobrać odpowiednie oprogramowanie. Do realizacji wykorzystałem:\n Armbian Buster Docker Jellyfin Calibre Nextcloud + Collabora + wtyczki do konwersji wideo i bazującej na niej audio  Kontenery zostały utworzone na podstawie konfiguracji dostępnych w repozytorium\nMontaż Po otrzymaniu wszystkich zamówionych podzespołów zabrałem się za montaż, który przebiegł bez – jak początkowo myślałem – najmniejszego problemu. Na etapie konfiguracji systemu operacyjnego okazało się, że nie działa wyświetlacz w TOP HAT, po zbadaniu sprawy wyszło, że dołączony został nieprawidłowy kabelek łączący SATA HAT i TOP HAT (Tematy 1 i 2), który przepalił wyświetlacz po otrzymaniu prawidłowego kabelka i nowej TOP HAT wszystko zadziałało.\nKonfiguracja systemu operacyjnego System Armbian został zainstalowany na module eMMC, na dyskach HDD utworzyłem macierz RAIDZ – odpowiednik RAID 5 z systemem plików ZFS. Trochę czasu zajęło mi odpowiednie doszlifowanie plików z konfiguracją dla Docker Compose, skonfigurowanie wszystkich aplikacji na potrzeby prezentacji pracy i zabezpieczenie serwera gdzie pomocny był artykuł How to Secure A Web Server i książka Unix i Linux Przewodnik administratora systemów. Po zabezpieczeniu utworzyłem w moim routerze TP-Link przekierowania na odpowiednie porty i ustawiłem domenę DDNS. Jedynie czego mi brakowało to uruchomienie szyfrowania SSL w usługach, szukając informacji jak najlepiej to zrobić i kilka nieudanych prób spowodowało, że musiałem pomysł zarzucić — połączenie pracy zawodowej, zbliżającego się terminu oddania pracy dyplomowej i realizacja projektu na zaliczenie przedmiotu Programowanie urządzeń mobilnych sprawiło, że nie miałem już więcej czasu na doszlifowanie tego brakującego elementu (jak się później okazało, to było bardzo łatwe i szybkie do realizacji!).\nObronę pracy dyplomowej zaliczyłem na 5!🥳\nDalsze losy serwera Po obronie pracy dyplomowej zgodnie z zaleceniem promotora serwer w obecnej konfiguracji pracował jeszcze 3 miesiące, po których upływie zaorałem wszystko. Debian, na którym bazował Armbian choć stabilny to jednak posiada starszą wersję pakietów, chciałem czegoś „nowszego”. Bazując na różnych źródłach próbowałem uruchomić Fedora Server, ale niestety po paru dniach walk nie udało mi się, przywróciłem kopię Armbiana na eMMC i uruchomiłem jedynie kontener z Nextcloud. Mając wolny czas szukałem informacji jak uruchomić szyfrowanie SSL i testując różne rozwiązania w końcu trafiłem na projekt Nginx Proxy Manager! Po jego uruchomieniu jako kontener dockerowy wystarczy tylko go skonfigurować i zmienić parę opcji w ustawieniach kontenera Nextcloud a wszystkie problemy z SSL jakie miałem same się rozwiązały! Proste i skuteczne rozwiązanie, przy którym spędziłem jeden wieczór. Kolejnym kontenerem, jaki dodałem, a na który trafiłem zupełnie przypadkiem jest Portainer co bardzo ułatwia mi życie przy zarządzaniu 😄\nPrzygoda z snapshotami ZFS Wszystko działało pięknie, ale po jakimś czasie zauważyłem, że mam coraz mniej dostępnego miejsca na serwerku z 3TB zostało niecałe 150GB, postanowiłem trochę posprzątać – myśląc, że pewnie automatyczne kopie kilku moich PC zaszalały i spuchły 😉, jakie było moje zdziwienie, gdy po usunięciu niektórych danych ilość wolnego miejsca jeszcze zmalała! Badając temat znalazłem przyczynę, moja macierz ZFS ma ponad 13000 snapshotów! Po krótkiej konsultacji na Reedicie (Tematy 1 i 2) zrobiłem odpowiednią konfiguracje i prostym skrypcikiem udało mi się temat ogarnąć 😄 najwyraźniej moje zabawy sprawiły, że docker sobie potworzył wiele zbędnych snapshotów pożerając całe miejsce 😄\nDalsze plany Chciałbym zmigrować swoją instancję Nextcloud na kontener AIO oraz dodać do niego Proton Bridge, aby przekonfigurować wysyłkę maili z gmaila na moją domenę w proton mail.\n",
+  "wordCount" : "889",
+  "inLanguage": "pl",
+  "datePublished": "2023-02-05T12:24:36+01:00",
+  "dateModified": "2023-02-05T12:24:36+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.karpinski.tech/projekty/02.serwer/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maciej Karpiński",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.karpinski.tech/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.karpinski.tech/" accesskey="h" title="Maciej Karpiński (Alt + H)">Maciej Karpiński</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.karpinski.tech/projekty/" title="Projekty">
+                    <span>Projekty</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.karpinski.tech/tags/" title="Tagi">
+                    <span>Tagi</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.karpinski.tech/search/" title="Wyszukaj (Alt &#43; /)" accesskey=/>
+                    <span>Wyszukaj</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.karpinski.tech/">Strona Główna</a>&nbsp;»&nbsp;<a href="https://www.karpinski.tech/projekty/">Projekty</a></div>
+    <h1 class="post-title">
+      Domowy serwerk
+    </h1>
+    <div class="post-meta"><span title='2023-02-05 12:24:36 +0100 CET'>niedziela 5 lutego 2023</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;889 słów
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="wstęp">Wstęp<a hidden class="anchor" aria-hidden="true" href="#wstęp">#</a></h2>
+<p>Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021 roku na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików.</p>
+<p>Wymagania pracy dyplomowej:</p>
+<ul>
+<li>System operacyjny: Linux</li>
+<li>Serwer multimediów (strumieniowanie muzyki/filmów)</li>
+<li>Serwer e-booków</li>
+<li>Serwer plików z możliwością konwersji audio i wideo</li>
+</ul>
+<h2 id="hardware">Hardware<a hidden class="anchor" aria-hidden="true" href="#hardware">#</a></h2>
+<p>Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi. Wcześniej nie miałem okazji „pobawić” się <a href="https://en.wikipedia.org/wiki/Single-board_computer">SBC</a> – zawsze uważałem je za gadżet więc i nie wiedziałem jak bardzo pod względem możliwości rozwinęła się ta część IT. Wybór SBC powodował, że jednocześnie miałem załatwioną kwestię niskiego zużycia energii i zachowania kompaktowych wymiarów, z drugiej strony SBC często wykorzystują procesory o architekturze ARM a ta poza telefonami z androidem była dla mnie zupełnie nieznana. Zmiana architektury nie byłaby dla mnie minus a wręcz plusem, w końcu mógłbym zrobić coś nowego niż złożenie kolejnego zestawu na x86-64, poprzedni raz taką zmianę w architekturze dokonałem w okolicach 2000r gdzie przesiadłem się z Amigi 600 na PC. Dużym minusem wszystkich SBC, jakie oglądałem była mała liczba (max 2) lub całkowity brak portów SATA, co uniemożliwiało utworzenie sensownej macierzy dyskowej, a którą mimo braku w wymaganiach chciałem mieć. Szukając informacji jak sensownie podłączyć (nie przez USB!) większą ilość dysków trafiłem na SBC <a href="https://wiki.radxa.com/Rock4">RockPi4</a>  i nakładki <a href="https://wiki.radxa.com/SATA_HAT">Quad i Penta SATA Kit</a>, obie nakładki pozwalają na podłączenie 4 dysków(5 w przypadku Penta) co już pozwala na utworzenie macierzy RAID 5, a to już mnie zadowalało. Kolejnym elementem był wybór twardych dysków, chciałem, żeby były to dyski 2,5” i żeby cena za 1GB była jak najmniejsza. Wybór padł więc na dedykowane dla systemów NAS dyski <a href="https://www.westerndigital.com/pl-pl/products/internal-drives/wd-red-plus-sata-2-5-hdd#WD10JFCX">WD Red Plus</a> o pojemności 1TB z myślą o przyszłej wymianie na pojemniejsze dyski SSD – gdy ich ceny będą korzystniejsze.</p>
+<p>Do realizacji projektu wybrałem:</p>
+<ul>
+<li>Rock Pi 4 Model A z 4GB RAM</li>
+<li>Penta SATA KIT</li>
+<li>Moduł eMMC 64GB</li>
+<li>4x  NAS WD Red™ Plus 2,5” WD10JFCX</li>
+</ul>
+<p><img loading="lazy" src="/images/2023-thumbs/02.serwer/hardware.png" alt="schemat hardware"  />
+</p>
+<h2 id="software">Software<a hidden class="anchor" aria-hidden="true" href="#software">#</a></h2>
+<p>Wymagania pracy były dosyć jasne wystarczyło więc tylko dobrać odpowiednie oprogramowanie. Do realizacji wykorzystałem:</p>
+<ul>
+<li><a href="https://www.armbian.com/rockpi4/">Armbian Buster</a></li>
+<li><a href="https://www.docker.com/">Docker</a></li>
+<li><a href="https://jellyfin.org/">Jellyfin</a></li>
+<li><a href="https://calibre-ebook.com/">Calibre</a></li>
+<li><a href="https://nextcloud.com/">Nextcloud</a> + <a href="https://www.collaboraoffice.com/">Collabora</a> + wtyczki do konwersji <a href="https://apps.nextcloud.com/apps/video_converter">wideo</a> i bazującej na niej <a href="https://github.com/MacKarp/NextcloudAudio_Converter">audio</a></li>
+</ul>
+<p>Kontenery zostały utworzone na podstawie konfiguracji dostępnych w <a href="https://github.com/MacKarp/HomeServerConfig">repozytorium</a></p>
+<p><img loading="lazy" src="/images/2023-thumbs/02.serwer/software.png" alt="schemat software"  />
+</p>
+<h2 id="montaż">Montaż<a hidden class="anchor" aria-hidden="true" href="#montaż">#</a></h2>
+<p>Po otrzymaniu wszystkich zamówionych podzespołów zabrałem się za montaż, który przebiegł bez – jak początkowo myślałem – najmniejszego problemu. Na etapie konfiguracji systemu operacyjnego okazało się, że nie działa wyświetlacz w TOP HAT, po zbadaniu sprawy wyszło, że dołączony został nieprawidłowy kabelek łączący SATA HAT i TOP HAT (Tematy <a href="https://forum.radxa.com/t/quad-sata-hat-top-no-oled-display-information-or-push-button-action/3478">1</a> i <a href="https://forum.radxa.com/t/penta-top-hat-oled-not-working/6060">2</a>), który przepalił wyświetlacz  po otrzymaniu prawidłowego kabelka i nowej TOP HAT wszystko zadziałało.</p>
+<p><img loading="lazy" src="/images/2023-thumbs/02.serwer/serwerek.png" alt="serwerek"  />
+</p>
+<h2 id="konfiguracja-systemu-operacyjnego">Konfiguracja systemu operacyjnego<a hidden class="anchor" aria-hidden="true" href="#konfiguracja-systemu-operacyjnego">#</a></h2>
+<p>System Armbian został zainstalowany na module eMMC, na dyskach HDD utworzyłem macierz RAIDZ – odpowiednik RAID 5 z systemem plików ZFS. Trochę czasu zajęło mi odpowiednie doszlifowanie plików z konfiguracją dla Docker Compose, skonfigurowanie wszystkich aplikacji na potrzeby prezentacji pracy i zabezpieczenie serwera gdzie pomocny był artykuł <a href="https://christitus.com/secure-web-server/">How to Secure A Web Server</a> i książka  <a href="https://lubimyczytac.pl/ksiazka/4929896/unix-i-linux-przewodnik-administratora-systemow-wydanie-v">Unix i Linux Przewodnik administratora systemów</a>. Po zabezpieczeniu utworzyłem w moim routerze TP-Link przekierowania na odpowiednie porty i ustawiłem domenę DDNS. Jedynie czego mi brakowało to uruchomienie szyfrowania SSL w usługach, szukając informacji jak najlepiej to zrobić i kilka nieudanych prób spowodowało, że musiałem pomysł zarzucić — połączenie pracy zawodowej, zbliżającego się terminu oddania pracy dyplomowej i realizacja projektu na zaliczenie przedmiotu Programowanie urządzeń mobilnych sprawiło, że nie miałem już więcej czasu na doszlifowanie tego brakującego elementu (jak się później okazało, to było bardzo łatwe i szybkie do realizacji!).</p>
+<p>Obronę pracy dyplomowej zaliczyłem na 5!🥳</p>
+<h2 id="dalsze-losy-serwera">Dalsze losy serwera<a hidden class="anchor" aria-hidden="true" href="#dalsze-losy-serwera">#</a></h2>
+<p>Po obronie pracy dyplomowej zgodnie z zaleceniem promotora serwer w obecnej konfiguracji pracował jeszcze 3 miesiące, po których upływie zaorałem wszystko. Debian, na którym bazował Armbian choć stabilny to jednak posiada starszą wersję pakietów, chciałem czegoś „nowszego”. Bazując na różnych źródłach próbowałem uruchomić Fedora Server, ale niestety po paru dniach walk nie udało mi się, przywróciłem kopię Armbiana na eMMC i uruchomiłem jedynie kontener z Nextcloud. Mając wolny czas szukałem informacji jak uruchomić szyfrowanie SSL i testując różne rozwiązania w  końcu trafiłem na projekt <a href="https://nginxproxymanager.com/">Nginx Proxy Manager</a>! Po jego uruchomieniu jako kontener dockerowy wystarczy tylko go skonfigurować i zmienić parę opcji w ustawieniach kontenera Nextcloud a wszystkie problemy z SSL jakie miałem same się rozwiązały! Proste i skuteczne rozwiązanie, przy którym spędziłem jeden wieczór. Kolejnym kontenerem, jaki dodałem, a na który trafiłem zupełnie przypadkiem jest <a href="https://www.portainer.io/">Portainer</a> co bardzo ułatwia mi życie przy zarządzaniu 😄</p>
+<h2 id="przygoda-z-snapshotami-zfs">Przygoda z snapshotami ZFS<a hidden class="anchor" aria-hidden="true" href="#przygoda-z-snapshotami-zfs">#</a></h2>
+<p>Wszystko działało pięknie, ale po jakimś czasie zauważyłem, że mam coraz mniej dostępnego miejsca na serwerku z 3TB zostało niecałe 150GB, postanowiłem trochę posprzątać – myśląc, że pewnie automatyczne kopie kilku moich PC zaszalały i spuchły 😉, jakie było moje zdziwienie, gdy po usunięciu niektórych danych ilość wolnego miejsca jeszcze zmalała! Badając temat znalazłem przyczynę, moja macierz ZFS ma ponad 13000 snapshotów! Po krótkiej konsultacji na Reedicie (Tematy <a href="https://www.reddit.com/r/zfs/comments/xudiih/raidz_running_out_of_space_bad_configuration/">1</a> i <a href="https://www.reddit.com/r/zfs/comments/yc8gu3/cant_remove_dataset_is_busysnapshot_are_cloned/">2</a>) zrobiłem odpowiednią konfiguracje i prostym skrypcikiem udało mi się temat ogarnąć 😄 najwyraźniej moje zabawy sprawiły, że docker sobie potworzył wiele  zbędnych snapshotów pożerając całe miejsce 😄</p>
+<h2 id="dalsze-plany">Dalsze plany<a hidden class="anchor" aria-hidden="true" href="#dalsze-plany">#</a></h2>
+<p>Chciałbym zmigrować swoją instancję Nextcloud na kontener <a href="https://github.com/nextcloud/all-in-one">AIO</a> oraz dodać do niego Proton Bridge, aby przekonfigurować wysyłkę maili z gmaila na moją domenę w proton mail.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.karpinski.tech/tags/linux/">Linux</a></li>
+      <li><a href="https://www.karpinski.tech/tags/networking/">Networking</a></li>
+      <li><a href="https://www.karpinski.tech/tags/nextcloud/">Nextcloud</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://www.karpinski.tech/">Maciej Karpiński</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

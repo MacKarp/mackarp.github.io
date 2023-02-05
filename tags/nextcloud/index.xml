@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Maciej Karpiński</title>
-    <link>https://www.karpinski.tech/</link>
-    <description>Recent content on Maciej Karpiński</description>
+    <title>Nextcloud on Maciej Karpiński</title>
+    <link>https://www.karpinski.tech/tags/nextcloud/</link>
+    <description>Recent content in Nextcloud on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 05 Feb 2023 12:24:36 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 12:24:36 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/nextcloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Domowy serwerk</title>
       <link>https://www.karpinski.tech/projekty/02.serwer/</link>
@@ -17,16 +17,6 @@
 Wymagania pracy dyplomowej:
  System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo  Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi.</description>
     </item>
-    
-    <item>
-      <title>Strona WWW</title>
-      <link>https://www.karpinski.tech/projekty/01.strona_www/</link>
-      <pubDate>Fri, 27 Jan 2023 09:20:08 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/01.strona_www/</guid>
-      <description>Prosta strona stworzona przy użyciu Hugo i motywu PaperMod w celu zebrania w jednym miejscu informacji na temat projektów, w których brałem udział.</description>
-    </item>
-    
     
   </channel>
 </rss>
