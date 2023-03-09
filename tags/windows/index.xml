@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Windows on Maciej Karpiński</title>
+    <link>https://www.karpinski.tech/tags/windows/</link>
+    <description>Recent content in Windows on Maciej Karpiński</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pl-PL</language>
+    <lastBuildDate>Thu, 09 Mar 2023 17:30:16 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cookbook</title>
+      <link>https://www.karpinski.tech/projekty/04.cookbook/</link>
+      <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/projekty/04.cookbook/</guid>
+      <description>Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu &amp;ldquo;Zaawansowane metody programowania&amp;rdquo; w semestrze letnim 2020/2021.</description>
+    </item>
+    
+  </channel>
+</rss>

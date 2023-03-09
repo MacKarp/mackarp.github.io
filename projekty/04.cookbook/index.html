@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pl" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Cookbook | Maciej Karpiński</title>
+<meta name="keywords" content="Linux, Windows, Rust, Collegium Witelona">
+<meta name="description" content="Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu &ldquo;Zaawansowane metody programowania&rdquo; w semestrze letnim 2020/2021.">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.karpinski.tech/projekty/04.cookbook/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css" integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.karpinski.tech/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.karpinski.tech/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.karpinski.tech/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.karpinski.tech/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.karpinski.tech/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Cookbook" />
+<meta property="og:description" content="Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu &ldquo;Zaawansowane metody programowania&rdquo; w semestrze letnim 2020/2021." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.karpinski.tech/projekty/04.cookbook/" /><meta property="article:section" content="projekty" />
+<meta property="article:published_time" content="2023-03-09T17:30:16+01:00" />
+<meta property="article:modified_time" content="2023-03-09T17:30:16+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cookbook"/>
+<meta name="twitter:description" content="Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu &ldquo;Zaawansowane metody programowania&rdquo; w semestrze letnim 2020/2021."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projekty",
+      "item": "https://www.karpinski.tech/projekty/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Cookbook",
+      "item": "https://www.karpinski.tech/projekty/04.cookbook/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cookbook",
+  "name": "Cookbook",
+  "description": "Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu \u0026ldquo;Zaawansowane metody programowania\u0026rdquo; w semestrze letnim 2020/2021.",
+  "keywords": [
+    "Linux", "Windows", "Rust", "Collegium Witelona"
+  ],
+  "articleBody": "Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu “Zaawansowane metody programowania” w semestrze letnim 2020/2021.\nPodział prac Nad projektem aplikacji pracowała dwu osobowa grupa. Skład i podział prac wyglądał następująco:\n Karpiński Maciej:  Aplikacja desktopowa DevOps; Backend Firebase.   Kuczma Łukasz:  Aplikacja webowa Backend Firebase.    Opis funkcjonalny System realizuje następujące funkcjonalności:\n Aplikacja desktopowa  Aplikacja dla systemu Windows, Aplikacja dla systemu Linux, Logowanie przy pomocy e-maila, Logowanie przy pomocy Google, Logowanie przy pomocy Facebooka, Przeglądanie przepisów na posiłki, Przeglądanie przepisów na koktajle, Dodawanie i usuwanie ulubionych przepisów na posiłki, Dodawanie i usuwanie ulubionych przepisów na koktajle, Synchronizacja z bazą danych Cloud Firestore.   Aplikacja webowa  Przeglądanie przepisów posiłków,  Wyszukiwanie posiłków po nazwie Wyszukiwanie posiłków po kategorii Wyszukiwanie posiłków po regionie świata Wyszukiwanie posiłków po składnikach   Logowanie przy pomocy e-maila, Logowania przy pomocy konta Google, Logowanie przy pomocy konta Facebook, Dodawanie i usuwanie przepisów do/z ulubionych, Synchronizacja między aplikacjami, Obsługa zewnętrznych API z przepisami posiłków, Obsługa bazy danych Cloud Firestore    Interfejs Interfejs aplikacji został zaprojektowany przy użyciu narzędzia Glade. Aplikacja w systemie Linux podąża za ustawionym motywem w systemie. W Windowsie występuje jedynie motyw adwaita. Aplikacja po uruchomieniu wygląda następująco:\nStack technologiczny aplikacji desktopowej Aplikacja desktopowa została stworzona przy wykorzystaniu następujących technologii:\n chrono firestore-db-and-auth Glade Google Firebase gtk GTK+ 3 oauth2 open rand reqwest Rust serde url Visual studio code  Podsumowanie Przed rozpoczęciem pracy nad aplikacją poznałem język programowania 🦀 Rust 🦀, który oczarował mnie od samego początku. Wcześniej pisałem różne większe i mniejsze aplikacji w różnych językach, ale zawsze mi w każdym coś nie pasowało aż do czasu gdy poznałem Rust, który mnie oczarował od samego początku, bawiłem się nim trochę, ale połączenie pracy i studiów nie pozwalało mi zrobić czegoś większego, ten projekt pozwolił mi poznać dobrze ten język i jak w przypadku innych języków nie zniechęcił mnie do siebie. Każdy, kto kiedyś programował w Rustcie wie, że borrow checker się czepia, ale jak tylko udało mi się go “pokonać” 🤣 wszystko, co zaprogramowałem działało a jeśli nadal był jakiś problem to był on natury logicznej jak np. nieprawidłowe wywołanie API albo wywołanie funkcji w nieprawidłowej kolejności niż jakieś wiszące wskaźniki czy nieprawidłowe argumenty przekazane do funkcji. Tworzenie aplikacji było mniejszym wyzwaniem niż początkowo się wydawało, praca nad projektem bardzo rozwinęła moją znajomość tego języka programowania. Brak oficjalnego SDK do API Google Firebase i słabo rozwinięte niektóre biblioteki stworzone przez użytkowników sprawiały niekiedy problemy, przez co musiałem część funkcjonalności stworzyć samemu, kod odpowiedzialny za OAuth2 po zakończeniu projektu rozwinąłem i udostępniłem bibliotece, z którą pracowałem. Wybór technologii GTK do stworzenia interfejsu użytkownika był nowym i interesującym doświadczeniem, jedynymi problemami okazała się słaba dokumentacja dotycząca kompilacji aplikacji dla systemu Windows, oraz niekompatybilność biblioteki WebKit (o czym w czasie wyboru technologii nie wiedziałem) z systemem Windows, przez co jedna z zaplanowanych funkcjonaliści nie działa do końca jak chciałem, ale obszedłem to w inny sposób, który ostatecznie okazał się lepszy (zamiast otwierać ekran logowania przez WebView, otwierałem przeglądarkę i nasłuchiwałem odpowiedzi zwrotnej). Tworząc aplikacje nauczyłem się wielu rzeczy takich jak cross kompilacja, autoryzacja OAuth2, obsługa Google Firebase, Travis CI czy wykorzystanie zewnętrznego API w aplikacji dekstopowej.\nRepozytorium kodu Repozytorium projektu znajduje sie na moim GitHubie. Można tam również pobrać aplikację desktopową.\nAplikacja webowa dostępna jest tu\n",
+  "wordCount" : "592",
+  "inLanguage": "pl",
+  "datePublished": "2023-03-09T17:30:16+01:00",
+  "dateModified": "2023-03-09T17:30:16+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.karpinski.tech/projekty/04.cookbook/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maciej Karpiński",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.karpinski.tech/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.karpinski.tech/" accesskey="h" title="Maciej Karpiński (Alt + H)">Maciej Karpiński</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.karpinski.tech/projekty/" title="Projekty">
+                    <span>Projekty</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.karpinski.tech/tags/" title="Tagi">
+                    <span>Tagi</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.karpinski.tech/search/" title="Wyszukaj (Alt &#43; /)" accesskey=/>
+                    <span>Wyszukaj</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.karpinski.tech/">Strona Główna</a>&nbsp;»&nbsp;<a href="https://www.karpinski.tech/projekty/">Projekty</a></div>
+    <h1 class="post-title">
+      Cookbook
+    </h1>
+    <div class="post-meta"><span title='2023-03-09 17:30:16 +0100 CET'>czwartek 9 marca 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;592 słów
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Spis treści</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#podzia%c5%82-prac" aria-label="Podział prac">Podział prac</a></li>
+                <li>
+                    <a href="#opis-funkcjonalny" aria-label="Opis funkcjonalny">Opis funkcjonalny</a></li>
+                <li>
+                    <a href="#interfejs" aria-label="Interfejs">Interfejs</a></li>
+                <li>
+                    <a href="#stack-technologiczny-aplikacji-desktopowej" aria-label="Stack technologiczny aplikacji desktopowej">Stack technologiczny aplikacji desktopowej</a></li>
+                <li>
+                    <a href="#podsumowanie" aria-label="Podsumowanie">Podsumowanie</a></li>
+                <li>
+                    <a href="#repozytorium-kodu" aria-label="Repozytorium kodu">Repozytorium kodu</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu &ldquo;Zaawansowane metody programowania&rdquo; w semestrze letnim 2020/2021.</p>
+<p><img loading="lazy" src="/images/2023-thumbs/04.Cookbook/logo.png#center" alt="logo aplikacji"  />
+</p>
+<h2 id="podział-prac">Podział prac<a hidden class="anchor" aria-hidden="true" href="#podział-prac">#</a></h2>
+<p>Nad projektem aplikacji pracowała dwu osobowa grupa. Skład i podział prac wyglądał następująco:</p>
+<ul>
+<li>Karpiński Maciej:
+<ul>
+<li>Aplikacja desktopowa</li>
+<li>DevOps;</li>
+<li>Backend Firebase.</li>
+</ul>
+</li>
+<li>Kuczma Łukasz:
+<ul>
+<li>Aplikacja webowa</li>
+<li>Backend Firebase.</li>
+</ul>
+</li>
+</ul>
+<h2 id="opis-funkcjonalny">Opis funkcjonalny<a hidden class="anchor" aria-hidden="true" href="#opis-funkcjonalny">#</a></h2>
+<p>System realizuje następujące funkcjonalności:</p>
+<ul>
+<li>Aplikacja desktopowa
+<ul>
+<li>Aplikacja dla systemu Windows,</li>
+<li>Aplikacja dla systemu Linux,</li>
+<li>Logowanie przy pomocy e-maila,</li>
+<li>Logowanie przy pomocy Google,</li>
+<li>Logowanie przy pomocy Facebooka,</li>
+<li>Przeglądanie przepisów na posiłki,</li>
+<li>Przeglądanie przepisów na koktajle,</li>
+<li>Dodawanie i usuwanie ulubionych przepisów na posiłki,</li>
+<li>Dodawanie i usuwanie ulubionych przepisów na koktajle,</li>
+<li>Synchronizacja z bazą danych Cloud Firestore.</li>
+</ul>
+</li>
+<li>Aplikacja webowa
+<ul>
+<li>Przeglądanie przepisów posiłków,
+<ul>
+<li>Wyszukiwanie posiłków po nazwie</li>
+<li>Wyszukiwanie posiłków po kategorii</li>
+<li>Wyszukiwanie posiłków po regionie świata</li>
+<li>Wyszukiwanie posiłków po składnikach</li>
+</ul>
+</li>
+<li>Logowanie przy pomocy e-maila,</li>
+<li>Logowania przy pomocy konta Google,</li>
+<li>Logowanie przy pomocy konta Facebook,</li>
+<li>Dodawanie i usuwanie przepisów do/z ulubionych,</li>
+<li>Synchronizacja między aplikacjami,</li>
+<li>Obsługa zewnętrznych API z przepisami posiłków,</li>
+<li>Obsługa bazy danych Cloud Firestore</li>
+</ul>
+</li>
+</ul>
+<h2 id="interfejs">Interfejs<a hidden class="anchor" aria-hidden="true" href="#interfejs">#</a></h2>
+<p>Interfejs aplikacji został zaprojektowany przy użyciu narzędzia Glade. Aplikacja w systemie Linux podąża za ustawionym motywem w systemie. W Windowsie występuje jedynie motyw adwaita. Aplikacja po uruchomieniu wygląda następująco:</p>
+<p><img loading="lazy" src="/images/2023-thumbs/04.Cookbook/meal.png#center" alt="GUI 1"  />
+
+<img loading="lazy" src="/images/2023-thumbs/04.Cookbook/drink.png#center" alt="GUI 2"  />
+</p>
+<h2 id="stack-technologiczny-aplikacji-desktopowej">Stack technologiczny aplikacji desktopowej<a hidden class="anchor" aria-hidden="true" href="#stack-technologiczny-aplikacji-desktopowej">#</a></h2>
+<p>Aplikacja desktopowa została stworzona przy wykorzystaniu następujących technologii:</p>
+<ul>
+<li><a href="https://crates.io/crates/chrono">chrono</a></li>
+<li><a href="https://crates.io/crates/firestore-db-and-auth">firestore-db-and-auth</a></li>
+<li><a href="https://glade.gnome.org/">Glade</a></li>
+<li><a href="https://firebase.google.com/">Google Firebase</a></li>
+<li><a href="https://crates.io/crates/gtk">gtk</a></li>
+<li><a href="https://www.gtk.org/">GTK+ 3</a></li>
+<li><a href="https://crates.io/crates/oauth2">oauth2</a></li>
+<li><a href="https://crates.io/crates/open">open</a></li>
+<li><a href="https://crates.io/crates/rand">rand</a></li>
+<li><a href="https://crates.io/crates/reqwest">reqwest</a></li>
+<li><a href="https://www.rust-lang.org/">Rust</a></li>
+<li><a href="https://crates.io/crates/serde">serde</a></li>
+<li><a href="https://crates.io/crates/url">url</a></li>
+<li><a href="https://code.visualstudio.com/">Visual studio code</a></li>
+</ul>
+<h2 id="podsumowanie">Podsumowanie<a hidden class="anchor" aria-hidden="true" href="#podsumowanie">#</a></h2>
+<p>Przed rozpoczęciem pracy nad aplikacją poznałem język programowania 🦀 Rust 🦀, który oczarował mnie od samego początku. Wcześniej pisałem różne większe i mniejsze aplikacji w różnych językach, ale zawsze mi w każdym coś nie pasowało aż do czasu gdy poznałem Rust, który mnie oczarował od samego początku, bawiłem się nim trochę, ale połączenie pracy i studiów nie pozwalało mi zrobić czegoś większego, ten projekt pozwolił mi poznać dobrze ten język i jak w przypadku innych języków nie zniechęcił mnie do siebie. Każdy, kto kiedyś programował w Rustcie wie, że borrow checker się czepia, ale jak tylko udało mi się go &ldquo;pokonać&rdquo; 🤣 wszystko, co zaprogramowałem działało a jeśli nadal był jakiś problem to był on natury logicznej jak np. nieprawidłowe wywołanie API albo wywołanie funkcji w nieprawidłowej kolejności niż jakieś wiszące wskaźniki czy nieprawidłowe argumenty przekazane do funkcji. Tworzenie aplikacji było mniejszym wyzwaniem niż początkowo się wydawało, praca nad projektem bardzo rozwinęła moją znajomość tego języka programowania. Brak oficjalnego SDK do API Google Firebase i słabo rozwinięte niektóre biblioteki stworzone przez użytkowników sprawiały niekiedy problemy, przez co musiałem część funkcjonalności stworzyć samemu, kod odpowiedzialny za OAuth2 po zakończeniu projektu rozwinąłem i udostępniłem <a href="https://github.com/davidgraeff/firestore-db-and-auth-rs">bibliotece</a>, z którą pracowałem. Wybór technologii GTK do stworzenia interfejsu użytkownika był nowym i interesującym doświadczeniem, jedynymi problemami okazała się słaba dokumentacja dotycząca kompilacji aplikacji dla systemu Windows, oraz niekompatybilność biblioteki WebKit (o czym w czasie wyboru technologii nie wiedziałem) z systemem Windows, przez co jedna z zaplanowanych funkcjonaliści nie działa do końca jak chciałem, ale obszedłem to w inny sposób, który ostatecznie okazał się lepszy (zamiast otwierać ekran logowania przez WebView, otwierałem przeglądarkę i nasłuchiwałem odpowiedzi zwrotnej). Tworząc aplikacje nauczyłem się wielu rzeczy takich jak cross kompilacja, autoryzacja OAuth2, obsługa Google Firebase, Travis CI czy wykorzystanie zewnętrznego API w aplikacji dekstopowej.</p>
+<h2 id="repozytorium-kodu">Repozytorium kodu<a hidden class="anchor" aria-hidden="true" href="#repozytorium-kodu">#</a></h2>
+<p>Repozytorium projektu znajduje sie na moim <a href="https://github.com/MacKarp/Cookbook">GitHubie</a>. Można tam również pobrać aplikację desktopową.</p>
+<p>Aplikacja webowa dostępna jest <a href="https://cookbook-307109.web.app/">tu</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.karpinski.tech/tags/linux/">Linux</a></li>
+      <li><a href="https://www.karpinski.tech/tags/windows/">Windows</a></li>
+      <li><a href="https://www.karpinski.tech/tags/rust/">Rust</a></li>
+      <li><a href="https://www.karpinski.tech/tags/collegium-witelona/">Collegium Witelona</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://www.karpinski.tech/">Maciej Karpiński</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

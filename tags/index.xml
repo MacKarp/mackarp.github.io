@@ -6,22 +6,49 @@
     <description>Recent content in Tags on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 26 Feb 2023 16:00:00 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 17:30:16 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Collegium Witelona</title>
+      <link>https://www.karpinski.tech/tags/collegium-witelona/</link>
+      <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/collegium-witelona/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://www.karpinski.tech/tags/linux/</link>
+      <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://www.karpinski.tech/tags/rust/</link>
+      <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://www.karpinski.tech/tags/windows/</link>
+      <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/windows/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Android</title>
       <link>https://www.karpinski.tech/tags/android/</link>
       <pubDate>Sun, 26 Feb 2023 16:00:00 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/tags/android/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Collegium Witelona</title>
-      <link>https://www.karpinski.tech/tags/collegium-witelona/</link>
-      <pubDate>Sun, 26 Feb 2023 16:00:00 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/tags/collegium-witelona/</guid>
       <description></description>
     </item>
     
@@ -40,15 +67,6 @@
       <pubDate>Sun, 26 Feb 2023 16:00:00 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/tags/reactnative/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://www.karpinski.tech/tags/linux/</link>
-      <pubDate>Sun, 05 Feb 2023 12:24:36 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/tags/linux/</guid>
       <description></description>
     </item>
     

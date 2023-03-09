@@ -6,7 +6,16 @@
     <description>Recent content in Collegium Witelona on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 26 Feb 2023 16:00:00 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/collegium-witelona/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Mar 2023 17:30:16 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/collegium-witelona/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cookbook</title>
+      <link>https://www.karpinski.tech/projekty/04.cookbook/</link>
+      <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/projekty/04.cookbook/</guid>
+      <description>Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu &amp;ldquo;Zaawansowane metody programowania&amp;rdquo; w semestrze letnim 2020/2021.</description>
+    </item>
+    
     <item>
       <title>HotScrew - Klon Tindera dla robotów!</title>
       <link>https://www.karpinski.tech/projekty/03.hotscrew/</link>
