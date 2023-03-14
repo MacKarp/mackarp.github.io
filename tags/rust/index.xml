@@ -6,7 +6,17 @@
     <description>Recent content in Rust on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Thu, 09 Mar 2023 17:30:16 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Mar 2023 09:06:12 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust Action RPG</title>
+      <link>https://www.karpinski.tech/projekty/05.rust_action_rpg/</link>
+      <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/projekty/05.rust_action_rpg/</guid>
+      <description>Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.
+Założenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie.</description>
+    </item>
+    
     <item>
       <title>Cookbook</title>
       <link>https://www.karpinski.tech/projekty/04.cookbook/</link>

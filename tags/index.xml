@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Thu, 09 Mar 2023 17:30:16 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Mar 2023 09:06:12 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Godot</title>
+      <link>https://www.karpinski.tech/tags/godot/</link>
+      <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/godot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://www.karpinski.tech/tags/rust/</link>
+      <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/rust/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Collegium Witelona</title>
       <link>https://www.karpinski.tech/tags/collegium-witelona/</link>
@@ -22,15 +40,6 @@
       <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rust</title>
-      <link>https://www.karpinski.tech/tags/rust/</link>
-      <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/tags/rust/</guid>
       <description></description>
     </item>
     

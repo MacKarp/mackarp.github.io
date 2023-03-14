@@ -6,7 +6,17 @@
     <description>Recent content on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Thu, 09 Mar 2023 17:30:16 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Mar 2023 09:06:12 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust Action RPG</title>
+      <link>https://www.karpinski.tech/projekty/05.rust_action_rpg/</link>
+      <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/projekty/05.rust_action_rpg/</guid>
+      <description>Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.
+Założenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie.</description>
+    </item>
+    
     <item>
       <title>Cookbook</title>
       <link>https://www.karpinski.tech/projekty/04.cookbook/</link>
@@ -22,7 +32,7 @@
       <pubDate>Sun, 26 Feb 2023 16:00:00 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/03.hotscrew/</guid>
-      <description>Wstęp HotScrew jest mobilną aplikacją, umożliwiającą robotom znalezienie swojej drugiej połówki i umówienie się z nią na randkę przy pomocy wbudowanego czatu. Wzorem przy projektowaniu i programowaniu była aplikacja Tinder. HotScrew dostępna jest na smartfony z systemem operacyjnym Android. Zastosowana technologia umożliwia przy niewielkiej modyfikacji zbudowanie działającej aplikacji na smartfony z systemem iOS lub aplikacji webowej. Aplikacja wykonana na laboratorium z przedmiotu &amp;ldquo;Programowanie aplikacji mobilnych&amp;rdquo; w semestrze zimowym 2021/2022.
+      <description>HotScrew jest mobilną aplikacją, umożliwiającą robotom znalezienie swojej drugiej połówki i umówienie się z nią na randkę przy pomocy wbudowanego czatu. Wzorem przy projektowaniu i programowaniu była aplikacja Tinder. HotScrew dostępna jest na smartfony z systemem operacyjnym Android. Zastosowana technologia umożliwia przy niewielkiej modyfikacji zbudowanie działającej aplikacji na smartfony z systemem iOS lub aplikacji webowej. Aplikacja wykonana na laboratorium z przedmiotu &amp;ldquo;Programowanie aplikacji mobilnych&amp;rdquo; w semestrze zimowym 2021/2022.
 Podział prac Nad projektem aplikacji pracowała czteroosobowa grupa.</description>
     </item>
     
@@ -32,7 +42,7 @@ Podział prac Nad projektem aplikacji pracowała czteroosobowa grupa.</descripti
       <pubDate>Sun, 05 Feb 2023 12:24:36 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/02.serwer/</guid>
-      <description>Wstęp Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021/2022 na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików. Promotorem pracy był dr inż. Zbigniew Fryźlewicz.
+      <description>Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021/2022 na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików. Promotorem pracy był dr inż. Zbigniew Fryźlewicz.
 Wymagania pracy dyplomowej:
  System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo  Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi.</description>
     </item>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pl" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Rust Action RPG | Maciej Karpiński</title>
+<meta name="keywords" content="Godot, Rust">
+<meta name="description" content="Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.
+Założenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie.">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.karpinski.tech/projekty/05.rust_action_rpg/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css" integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.karpinski.tech/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.karpinski.tech/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.karpinski.tech/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.karpinski.tech/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.karpinski.tech/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Rust Action RPG" />
+<meta property="og:description" content="Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.
+Założenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.karpinski.tech/projekty/05.rust_action_rpg/" /><meta property="article:section" content="projekty" />
+<meta property="article:published_time" content="2023-03-14T09:06:12+01:00" />
+<meta property="article:modified_time" content="2023-03-14T09:06:12+01:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rust Action RPG"/>
+<meta name="twitter:description" content="Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.
+Założenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projekty",
+      "item": "https://www.karpinski.tech/projekty/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Rust Action RPG",
+      "item": "https://www.karpinski.tech/projekty/05.rust_action_rpg/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Rust Action RPG",
+  "name": "Rust Action RPG",
+  "description": "Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.\nZałożenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie.",
+  "keywords": [
+    "Godot", "Rust"
+  ],
+  "articleBody": "Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.\nZałożenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie. W tym samym czasie jakoś przypadkiem trafiłem na parę filmików dotyczących silnika Godot na kanale Gamefromscratch i postanowiłem połączyć naukę dwóch rzeczy jednocześnie.\nRezultat Bazując na świetnym tutorialu odtworzyłem cały kod w Rust przy wykorzystaniu biblioteki gdnative w trakcie pracy okazało się że w bibliotece brakuje 2 metod dla Vector2 więc je wysłałem na upstream:\n Vector2 move_towards po kilku poprawkach zostało dodane 😁 Vector2 normalized zostało zamknięte, pomysł nie przeszedł bo biblioteka, na której bazuje Vector2 posiada już funkcję normalizującą, jedyna różnica między moją wersją a wersją z biblioteki jest taka że moja w przypadku Vectora2 o parametrach 0.0 0.0 zwraca Vector2 o parametrach 0.0 0.0 (tak zachowuje się funkcja w silniku Godot) natomiast funkcja z biblioteki w przypadku Vectora2 o takich parametrach zwraca do silnika wartość: NaN NaN - wewnętrznie następuje dzielenie przez 0. Autorzy biblioteki stwierdzili że developer powinien sam decydować co w takim przypadku zrobić.  Podsumowanie Świetnie się bawiłem przy tym projekcie, wiele się nauczyłem i kto wie może w przyszłości zrobię jeszcze jakąś prostą grę 🙂\nRepozytorium kodu Repozytorium projektu znajduje sie na moim GitHubie.\n",
+  "wordCount" : "263",
+  "inLanguage": "pl",
+  "datePublished": "2023-03-14T09:06:12+01:00",
+  "dateModified": "2023-03-14T09:06:12+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.karpinski.tech/projekty/05.rust_action_rpg/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maciej Karpiński",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.karpinski.tech/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.karpinski.tech/" accesskey="h" title="Maciej Karpiński (Alt + H)">Maciej Karpiński</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.karpinski.tech/projekty/" title="Projekty">
+                    <span>Projekty</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.karpinski.tech/tags/" title="Tagi">
+                    <span>Tagi</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.karpinski.tech/search/" title="Wyszukaj (Alt &#43; /)" accesskey=/>
+                    <span>Wyszukaj</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.karpinski.tech/">Strona Główna</a>&nbsp;»&nbsp;<a href="https://www.karpinski.tech/projekty/">Projekty</a></div>
+    <h1 class="post-title">
+      Rust Action RPG
+    </h1>
+    <div class="post-meta"><span title='2023-03-14 09:06:12 +0100 CET'>wtorek 14 marca 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;263 słów
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Spis treści</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#za%c5%82o%c5%bcenia" aria-label="Założenia">Założenia</a></li>
+                <li>
+                    <a href="#rezultat" aria-label="Rezultat">Rezultat</a></li>
+                <li>
+                    <a href="#podsumowanie" aria-label="Podsumowanie">Podsumowanie</a></li>
+                <li>
+                    <a href="#repozytorium-kodu" aria-label="Repozytorium kodu">Repozytorium kodu</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Rust Action RPG Tutorial jest portem świetnego <a href="https://www.youtube.com/playlist?list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a">tutoriala</a> stworzonego przez <a href="https://www.youtube.com/@uheartbeast">HeartBeast</a>, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.</p>
+<p><img loading="lazy" src="/images/2023-thumbs/05.Rust_Action_RPG.jpg#center" alt="logo"  />
+</p>
+<h2 id="założenia">Założenia<a hidden class="anchor" aria-hidden="true" href="#założenia">#</a></h2>
+<p>Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie. W tym samym czasie jakoś przypadkiem trafiłem na parę filmików dotyczących silnika Godot na kanale <a href="https://www.youtube.com/@gamefromscratch">Gamefromscratch</a> i postanowiłem połączyć naukę dwóch rzeczy jednocześnie.</p>
+<h2 id="rezultat">Rezultat<a hidden class="anchor" aria-hidden="true" href="#rezultat">#</a></h2>
+<p>Bazując na świetnym <a href="https://www.youtube.com/playlist?list=PL9FzW-m48fn2SlrW0KoLT4n5egNdX-W9a">tutorialu</a> odtworzyłem cały kod w Rust przy wykorzystaniu biblioteki <a href="https://godot-rust.github.io/">gdnative</a> w trakcie pracy okazało się że w bibliotece brakuje 2 metod dla Vector2 więc je wysłałem na upstream:</p>
+<ul>
+<li><a href="https://github.com/godot-rust/gdnative/pull/567">Vector2 move_towards</a> po kilku poprawkach zostało dodane 😁</li>
+<li><a href="https://github.com/godot-rust/gdnative/pull/564">Vector2 normalized</a> zostało zamknięte, pomysł nie przeszedł bo biblioteka, na której bazuje Vector2 posiada już funkcję normalizującą, jedyna różnica między moją wersją a wersją z biblioteki jest taka że moja w przypadku Vectora2 o parametrach 0.0 0.0 zwraca Vector2 o parametrach 0.0 0.0 (tak zachowuje się funkcja w silniku Godot) natomiast funkcja z biblioteki w przypadku Vectora2 o takich parametrach zwraca do silnika wartość: NaN NaN - wewnętrznie następuje dzielenie przez 0. Autorzy biblioteki stwierdzili że developer powinien sam decydować co w takim przypadku zrobić.</li>
+</ul>
+<h2 id="podsumowanie">Podsumowanie<a hidden class="anchor" aria-hidden="true" href="#podsumowanie">#</a></h2>
+<p>Świetnie się bawiłem przy tym projekcie, wiele się nauczyłem i kto wie może w przyszłości zrobię jeszcze jakąś prostą grę 🙂</p>
+<h2 id="repozytorium-kodu">Repozytorium kodu<a hidden class="anchor" aria-hidden="true" href="#repozytorium-kodu">#</a></h2>
+<p>Repozytorium projektu znajduje sie na moim <a href="https://github.com/MacKarp/Rust_Action_RPG_Tutorial">GitHubie</a>.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.karpinski.tech/tags/godot/">Godot</a></li>
+      <li><a href="https://www.karpinski.tech/tags/rust/">Rust</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://www.karpinski.tech/">Maciej Karpiński</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
