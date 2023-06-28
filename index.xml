@@ -6,7 +6,17 @@
     <description>Recent content on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 14 Mar 2023 09:06:12 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jun 2023 18:09:28 +0200</lastBuildDate><atom:link href="https://www.karpinski.tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RustyKube</title>
+      <link>https://www.karpinski.tech/projekty/06.rustykube/</link>
+      <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
+      
+      <guid>https://www.karpinski.tech/projekty/06.rustykube/</guid>
+      <description>RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.
+Kubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine.</description>
+    </item>
+    
     <item>
       <title>Rust Action RPG</title>
       <link>https://www.karpinski.tech/projekty/05.rust_action_rpg/</link>

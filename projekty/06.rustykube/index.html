@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pl" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>RustyKube | Maciej Karpiński</title>
+<meta name="keywords" content="Docker, Kubernetes, Google Cloud, Rust, WWW">
+<meta name="description" content="RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.
+Kubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine.">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.karpinski.tech/projekty/06.rustykube/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.karpinski.tech/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.karpinski.tech/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.karpinski.tech/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.karpinski.tech/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.karpinski.tech/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="RustyKube" />
+<meta property="og:description" content="RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.
+Kubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.karpinski.tech/projekty/06.rustykube/" /><meta property="article:section" content="projekty" />
+<meta property="article:published_time" content="2023-06-28T18:09:28+02:00" />
+<meta property="article:modified_time" content="2023-06-28T18:09:28+02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RustyKube"/>
+<meta name="twitter:description" content="RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.
+Kubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projekty",
+      "item": "https://www.karpinski.tech/projekty/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "RustyKube",
+      "item": "https://www.karpinski.tech/projekty/06.rustykube/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RustyKube",
+  "name": "RustyKube",
+  "description": "RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.\nKubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine.",
+  "keywords": [
+    "Docker", "Kubernetes", "Google Cloud", "Rust", "WWW"
+  ],
+  "articleBody": "RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.\nKubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine. Aplikacja posiada skonfigurowany CI/CD więc każda aktualizacja w repozytorium powoduje automatyczne wdrożenie w GCP.\nW początkowych fazach nauki i testowania jak co działa miałem uruchomione kilka nodów z backendem aplikacji zawierającym od 3 do 5 podów w każdym. Na chwilę obecną - ze względu na chęć ograniczenia kosztów - ustawiony jest autopilot, przeważnie zawierający 1 noda i 1 poda.\nBaza danych Jako bazę danych wybrałem MongoDB, projekt miał się skupić na zapoznaniu się z technologią Kubernetes więc nie było potrzeby używać relacyjnej bazy danych, wystarczyło żeby baza przechowywała potrzebne dane, do których backend mógły się odwoływać lub zapisywać.\nBackend Aplikacja napisana w języku Rust przy wykorzystaniu z frameworka Rocket. Jest to proste API, które pobiera lub zapisuje dane w bazie danych. Dodatkowo do każdego wystawionego JSONa dodawana jest nazwa hosta(poda), z którego pochodzi odpowiedź. Backend dostępny jest pod adresem: rk.karpinski.tech\nAplikacja udostępnia poszczególne endpointy:\n get:  /books - pobiera wszystkie dane z bazy danych /books/ - pojedynczy wpis o podanym id   post:  /books - zapisuje do bazy danych nowy wpis    Przykładowe zapytania:\nget /books:\n\"hostname\": \"backend-77cf5d6465-jjl9l\", \"books\": [ { \"_id\": { \"$oid\": \"643701f7c0c25e2543f0c69e\" }, \"title\": \"The Grapes of Wrath1\", \"author\": \"John Steinbeck1\" }, { \"_id\": { \"$oid\": \"6419bf2f105a3c2ed1fa40b8\" }, \"title\": \"To Kill a Mockingbird\", \"author\": \"Harper Lee\" }, { \"_id\": { \"$oid\": \"6436f918c936c189a23df8ba\" }, \"title\": \"The Grapes of Wrath1\", \"author\": \"John Steinbeck1\" }, ... { \"_id\": { \"$oid\": \"64370870f5c6cb1c41698f83\" }, \"title\": \"The Grapes of Wrath1\", \"author\": \"John Steinbeck1\" } ] } get /books/64370b83c7043b3af6f64896\n{ \"hostname\": \"backend-77cf5d6465-jjl9l\", \"books\": [ { \"_id\": { \"$oid\": \"64370b83c7043b3af6f64896\" }, \"title\": \"The Grapes of Wrath1\", \"author\": \"John Steinbeck1\" } ] } post /books:\nFrontend WIP - RustyKube\nRepozytorium Repozytorium kodu aplikacji, oraz pliki dockerfile pozwalające zbudować kontener i konfiguracje kubernetesa znajdują się w moim repozytorium RustyKube\n",
+  "wordCount" : "383",
+  "inLanguage": "pl",
+  "datePublished": "2023-06-28T18:09:28+02:00",
+  "dateModified": "2023-06-28T18:09:28+02:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.karpinski.tech/projekty/06.rustykube/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Maciej Karpiński",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.karpinski.tech/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.karpinski.tech/" accesskey="h" title="Maciej Karpiński (Alt + H)">Maciej Karpiński</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.karpinski.tech/projekty/" title="Projekty">
+                    <span>Projekty</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.karpinski.tech/tags/" title="Tagi">
+                    <span>Tagi</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.karpinski.tech/search/" title="Wyszukaj (Alt &#43; /)" accesskey=/>
+                    <span>Wyszukaj</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://www.karpinski.tech/">Strona Główna</a>&nbsp;»&nbsp;<a href="https://www.karpinski.tech/projekty/">Projekty</a></div>
+    <h1 class="post-title">
+      RustyKube
+    </h1>
+    <div class="post-meta"><span title='2023-06-28 18:09:28 +0200 CEST'>środa 28 czerwca 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;383 słów
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Spis treści</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#kubernetes" aria-label="Kubernetes">Kubernetes</a></li>
+                <li>
+                    <a href="#baza-danych" aria-label="Baza danych">Baza danych</a></li>
+                <li>
+                    <a href="#backend" aria-label="Backend">Backend</a></li>
+                <li>
+                    <a href="#frontend" aria-label="Frontend">Frontend</a></li>
+                <li>
+                    <a href="#repozytorium" aria-label="Repozytorium">Repozytorium</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.</p>
+<h2 id="kubernetes">Kubernetes<a hidden class="anchor" aria-hidden="true" href="#kubernetes">#</a></h2>
+<p>Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂
+Aplikacja jest uruchomiona na platformie <a href="https://cloud.google.com/">Google Cloud</a> przy pomocy <a href="https://cloud.google.com/kubernetes-engine">Google Kubernetes Engine</a>. Aplikacja posiada skonfigurowany CI/CD więc każda aktualizacja w repozytorium powoduje automatyczne wdrożenie w GCP.</p>
+<p>W początkowych fazach nauki i testowania jak co działa miałem uruchomione kilka nodów z backendem aplikacji zawierającym od 3 do 5 podów w każdym. Na chwilę obecną - ze względu na chęć ograniczenia kosztów - ustawiony jest autopilot, przeważnie zawierający 1 noda i 1 poda.</p>
+<h2 id="baza-danych">Baza danych<a hidden class="anchor" aria-hidden="true" href="#baza-danych">#</a></h2>
+<p>Jako bazę danych wybrałem MongoDB, projekt miał się skupić na zapoznaniu się z technologią Kubernetes więc nie było potrzeby używać relacyjnej bazy danych, wystarczyło żeby baza przechowywała potrzebne dane, do których backend mógły się odwoływać lub zapisywać.</p>
+<h2 id="backend">Backend<a hidden class="anchor" aria-hidden="true" href="#backend">#</a></h2>
+<p>Aplikacja napisana w języku Rust przy wykorzystaniu z frameworka <a href="https://rocket.rs/">Rocket</a>. Jest to proste API, które pobiera lub zapisuje dane w bazie danych. Dodatkowo do każdego wystawionego JSONa dodawana jest nazwa hosta(poda), z którego pochodzi odpowiedź. Backend dostępny jest pod adresem: <a href="http://rk.karpinski.tech">rk.karpinski.tech</a></p>
+<p>Aplikacja udostępnia poszczególne endpointy:</p>
+<ul>
+<li>get:
+<ul>
+<li>/books - pobiera wszystkie dane z bazy danych</li>
+<li>/books/&lt;id&gt; - pojedynczy wpis o podanym id</li>
+</ul>
+</li>
+<li>post:
+<ul>
+<li>/books - zapisuje do bazy danych nowy wpis</li>
+</ul>
+</li>
+</ul>
+<p>Przykładowe zapytania:</p>
+<p>get /books:</p>
+<pre tabindex="0"><code class="language-{" data-lang="{">  &#34;hostname&#34;: &#34;backend-77cf5d6465-jjl9l&#34;,
+  &#34;books&#34;: [
+    {
+      &#34;_id&#34;: {
+        &#34;$oid&#34;: &#34;643701f7c0c25e2543f0c69e&#34;
+      },
+      &#34;title&#34;: &#34;The Grapes of Wrath1&#34;,
+      &#34;author&#34;: &#34;John Steinbeck1&#34;
+    },
+    {
+      &#34;_id&#34;: {
+        &#34;$oid&#34;: &#34;6419bf2f105a3c2ed1fa40b8&#34;
+      },
+      &#34;title&#34;: &#34;To Kill a Mockingbird&#34;,
+      &#34;author&#34;: &#34;Harper Lee&#34;
+    },
+    {
+      &#34;_id&#34;: {
+        &#34;$oid&#34;: &#34;6436f918c936c189a23df8ba&#34;
+      },
+      &#34;title&#34;: &#34;The Grapes of Wrath1&#34;,
+      &#34;author&#34;: &#34;John Steinbeck1&#34;
+    },
+   ...
+    {
+      &#34;_id&#34;: {
+        &#34;$oid&#34;: &#34;64370870f5c6cb1c41698f83&#34;
+      },
+      &#34;title&#34;: &#34;The Grapes of Wrath1&#34;,
+      &#34;author&#34;: &#34;John Steinbeck1&#34;
+    }
+  ]
+}
+</code></pre><p>get /books/64370b83c7043b3af6f64896</p>
+<pre tabindex="0"><code>{
+  &#34;hostname&#34;: &#34;backend-77cf5d6465-jjl9l&#34;,
+  &#34;books&#34;: [
+    {
+      &#34;_id&#34;: {
+        &#34;$oid&#34;: &#34;64370b83c7043b3af6f64896&#34;
+      },
+      &#34;title&#34;: &#34;The Grapes of Wrath1&#34;,
+      &#34;author&#34;: &#34;John Steinbeck1&#34;
+    }
+  ]
+}
+</code></pre><p>post /books:</p>
+<pre tabindex="0"><code></code></pre><h2 id="frontend">Frontend<a hidden class="anchor" aria-hidden="true" href="#frontend">#</a></h2>
+<p>WIP - <a href="http://rustykube.karpinski.tech">RustyKube</a></p>
+<h2 id="repozytorium">Repozytorium<a hidden class="anchor" aria-hidden="true" href="#repozytorium">#</a></h2>
+<p>Repozytorium kodu aplikacji, oraz pliki dockerfile pozwalające zbudować kontener i konfiguracje kubernetesa znajdują się w moim <a href="https://github.com/MacKarp/RustyKube">repozytorium RustyKube</a></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.karpinski.tech/tags/docker/">Docker</a></li>
+      <li><a href="https://www.karpinski.tech/tags/kubernetes/">Kubernetes</a></li>
+      <li><a href="https://www.karpinski.tech/tags/google-cloud/">Google Cloud</a></li>
+      <li><a href="https://www.karpinski.tech/tags/rust/">Rust</a></li>
+      <li><a href="https://www.karpinski.tech/tags/www/">WWW</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://www.karpinski.tech/">Maciej Karpiński</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

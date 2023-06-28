@@ -6,22 +6,58 @@
     <description>Recent content in Tags on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Tue, 14 Mar 2023 09:06:12 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jun 2023 18:09:28 +0200</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Godot</title>
-      <link>https://www.karpinski.tech/tags/godot/</link>
-      <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
+      <title>Docker</title>
+      <link>https://www.karpinski.tech/tags/docker/</link>
+      <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
       
-      <guid>https://www.karpinski.tech/tags/godot/</guid>
+      <guid>https://www.karpinski.tech/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Cloud</title>
+      <link>https://www.karpinski.tech/tags/google-cloud/</link>
+      <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/google-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://www.karpinski.tech/tags/kubernetes/</link>
+      <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rust</title>
       <link>https://www.karpinski.tech/tags/rust/</link>
-      <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
+      <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
       
       <guid>https://www.karpinski.tech/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WWW</title>
+      <link>https://www.karpinski.tech/tags/www/</link>
+      <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/www/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Godot</title>
+      <link>https://www.karpinski.tech/tags/godot/</link>
+      <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
+      
+      <guid>https://www.karpinski.tech/tags/godot/</guid>
       <description></description>
     </item>
     
@@ -103,15 +139,6 @@
       <pubDate>Fri, 27 Jan 2023 09:20:08 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WWW</title>
-      <link>https://www.karpinski.tech/tags/www/</link>
-      <pubDate>Fri, 27 Jan 2023 09:20:08 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/tags/www/</guid>
       <description></description>
     </item>
     

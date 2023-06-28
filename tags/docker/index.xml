@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>WWW on Maciej Karpiński</title>
-    <link>https://www.karpinski.tech/tags/www/</link>
-    <description>Recent content in WWW on Maciej Karpiński</description>
+    <title>Docker on Maciej Karpiński</title>
+    <link>https://www.karpinski.tech/tags/docker/</link>
+    <description>Recent content in Docker on Maciej Karpiński</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Wed, 28 Jun 2023 18:09:28 +0200</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/www/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jun 2023 18:09:28 +0200</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RustyKube</title>
       <link>https://www.karpinski.tech/projekty/06.rustykube/</link>
@@ -15,15 +15,6 @@
       <guid>https://www.karpinski.tech/projekty/06.rustykube/</guid>
       <description>RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.
 Kubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine.</description>
-    </item>
-    
-    <item>
-      <title>Strona WWW</title>
-      <link>https://www.karpinski.tech/projekty/01.strona_www/</link>
-      <pubDate>Fri, 27 Jan 2023 09:20:08 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/01.strona_www/</guid>
-      <description>Prosta strona stworzona przy użyciu Hugo i motywu PaperMod w celu zebrania w jednym miejscu informacji na temat projektów, w których brałem udział.</description>
     </item>
     
   </channel>
