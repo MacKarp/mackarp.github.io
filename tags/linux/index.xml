@@ -13,7 +13,7 @@
       <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/04.cookbook/</guid>
-      <description>Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu &amp;ldquo;Zaawansowane metody programowania&amp;rdquo; w semestrze letnim 2020/2021.</description>
+      <description>Opis aplikacji desktopowej i webowej serwującej przepisy na posiłki i drinki stworzonej na potrzeby projektu studenckiego</description>
     </item>
     
     <item>
@@ -22,9 +22,7 @@
       <pubDate>Sun, 05 Feb 2023 12:24:36 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/02.serwer/</guid>
-      <description>Projekt domowego serwera chodził mi po głowie już od dłuższego czasu, ale z różnych powodów ciągle go odkładałem na później. Projekt w końcu zrealizowałem w 2021/2022 na potrzeby pracy dyplomowej, której celem była budowa domowego serwera multimediów i plików. Promotorem pracy był dr inż. Zbigniew Fryźlewicz.
-Wymagania pracy dyplomowej:
-System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi.</description>
+      <description>Opis projektu domowego serwera plików z wykorzystaniem NextCloud</description>
     </item>
     
   </channel>

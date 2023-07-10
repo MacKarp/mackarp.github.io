@@ -13,8 +13,7 @@
       <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/06.rustykube/</guid>
-      <description>RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.
-Kubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine.</description>
+      <description>Prosta aplikacja napisana w języku Rust do celów eksperymentu z Kubernetesem</description>
     </item>
     
     <item>
@@ -23,8 +22,7 @@ Kubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić 
       <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/05.rust_action_rpg/</guid>
-      <description>Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.
-Założenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie.</description>
+      <description>Port tutoriala Action RPG dla silnika Godot  stworzonego przez HearBeast przy wykorzystaniu języka Rust</description>
     </item>
     
     <item>
@@ -33,7 +31,7 @@ Założenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałe
       <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/04.cookbook/</guid>
-      <description>Cookbook jest aplikacją webową i desktopową umożliwiającą przeglądanie, wyszukiwanie i zapisywanie przepisów na dania i koktajle. Celem projektu było zaprojektowanie i zbudowanie aplikacji, które będą konsumowały zewnętrzne API i synchronizowały między sobą stan użytkownika. Dodatkowym kryterium miało być zastosowanie poznanych wzorców projektowych i jak największe pokrycie kodu testami. Aplikacja desktopowa miała być natywna, było zakazane wykorzystanie technologii WebView (żeby nie robić wrappera aplikacji webowej). Aplikacje wykonane na laboratorium z przedmiotu &amp;ldquo;Zaawansowane metody programowania&amp;rdquo; w semestrze letnim 2020/2021.</description>
+      <description>Opis aplikacji desktopowej i webowej serwującej przepisy na posiłki i drinki stworzonej na potrzeby projektu studenckiego</description>
     </item>
     
   </channel>

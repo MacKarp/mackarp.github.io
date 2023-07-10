@@ -13,8 +13,7 @@
       <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/06.rustykube/</guid>
-      <description>RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.
-Kubernetes Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂 Aplikacja jest uruchomiona na platformie Google Cloud przy pomocy Google Kubernetes Engine.</description>
+      <description>Prosta aplikacja napisana w języku Rust do celów eksperymentu z Kubernetesem</description>
     </item>
     
   </channel>

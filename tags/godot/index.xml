@@ -13,8 +13,7 @@
       <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
       
       <guid>https://www.karpinski.tech/projekty/05.rust_action_rpg/</guid>
-      <description>Rust Action RPG Tutorial jest portem świetnego tutoriala stworzonego przez HeartBeast, gdzie pokazuje jak stworzyć prostą grę rpg przy użyciu silnika Godot.
-Założenia Niedługo przed rozpoczęciem prac nad tym projektem zainteresowałem się językiem 🦀 Rust 🦀, który mnie oczarował od samego początku. Po przerobieniu podstaw stwierdziłem że trzeba się wziąć za cos większego - zawsze mi lepiej nauka programowania wychodziła na większych projektach, gdzie musiałem sam znaleźć rozwiązanie problemu(chociażby podstawowego) niż przerabianie książek czy innych źródeł gdzie autor tłumaczy koncepcje języka lub jego składnie.</description>
+      <description>Port tutoriala Action RPG dla silnika Godot  stworzonego przez HearBeast przy wykorzystaniu języka Rust</description>
     </item>
     
   </channel>
