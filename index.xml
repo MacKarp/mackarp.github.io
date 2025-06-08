@@ -2,65 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Maciej Karpiński</title>
-    <link>https://www.karpinski.tech/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Maciej Karpiński</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Wed, 28 Jun 2023 18:09:28 +0200</lastBuildDate><atom:link href="https://www.karpinski.tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jun 2023 18:09:28 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RustyKube</title>
-      <link>https://www.karpinski.tech/projekty/06.rustykube/</link>
+      <link>http://localhost:1313/projekty/06.rustykube/</link>
       <pubDate>Wed, 28 Jun 2023 18:09:28 +0200</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/06.rustykube/</guid>
+      <guid>http://localhost:1313/projekty/06.rustykube/</guid>
       <description>Prosta aplikacja napisana w języku Rust do celów eksperymentu z Kubernetesem</description>
     </item>
-    
     <item>
       <title>Rust Action RPG</title>
-      <link>https://www.karpinski.tech/projekty/05.rust_action_rpg/</link>
+      <link>http://localhost:1313/projekty/05.rust_action_rpg/</link>
       <pubDate>Tue, 14 Mar 2023 09:06:12 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/05.rust_action_rpg/</guid>
+      <guid>http://localhost:1313/projekty/05.rust_action_rpg/</guid>
       <description>Port tutoriala Action RPG dla silnika Godot  stworzonego przez HearBeast przy wykorzystaniu języka Rust</description>
     </item>
-    
     <item>
       <title>Cookbook</title>
-      <link>https://www.karpinski.tech/projekty/04.cookbook/</link>
+      <link>http://localhost:1313/projekty/04.cookbook/</link>
       <pubDate>Thu, 09 Mar 2023 17:30:16 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/04.cookbook/</guid>
+      <guid>http://localhost:1313/projekty/04.cookbook/</guid>
       <description>Opis aplikacji desktopowej i webowej serwującej przepisy na posiłki i drinki stworzonej na potrzeby projektu studenckiego</description>
     </item>
-    
     <item>
       <title>HotScrew - Klon Tindera dla robotów!</title>
-      <link>https://www.karpinski.tech/projekty/03.hotscrew/</link>
+      <link>http://localhost:1313/projekty/03.hotscrew/</link>
       <pubDate>Sun, 26 Feb 2023 16:00:00 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/03.hotscrew/</guid>
+      <guid>http://localhost:1313/projekty/03.hotscrew/</guid>
       <description>Opis klona Tindera dla robotów stworzonego na potrzeby projektu studenckiego</description>
     </item>
-    
     <item>
       <title>Domowy serwerk</title>
-      <link>https://www.karpinski.tech/projekty/02.serwer/</link>
+      <link>http://localhost:1313/projekty/02.serwer/</link>
       <pubDate>Sun, 05 Feb 2023 12:24:36 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/02.serwer/</guid>
+      <guid>http://localhost:1313/projekty/02.serwer/</guid>
       <description>Opis projektu domowego serwera plików z wykorzystaniem NextCloud</description>
     </item>
-    
     <item>
       <title>Strona WWW</title>
-      <link>https://www.karpinski.tech/projekty/01.strona_www/</link>
+      <link>http://localhost:1313/projekty/01.strona_www/</link>
       <pubDate>Fri, 27 Jan 2023 09:20:08 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/01.strona_www/</guid>
+      <guid>http://localhost:1313/projekty/01.strona_www/</guid>
       <description>Prosta strona osobista stworzona przy wykorzystaniu Hugo i motywu PaperMod</description>
     </item>
-    
-    
   </channel>
 </rss>

@@ -2,19 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Nextcloud on Maciej Karpiński</title>
-    <link>https://www.karpinski.tech/tags/nextcloud/</link>
+    <link>http://localhost:1313/tags/nextcloud/</link>
     <description>Recent content in Nextcloud on Maciej Karpiński</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>pl-PL</language>
-    <lastBuildDate>Sun, 05 Feb 2023 12:24:36 +0100</lastBuildDate><atom:link href="https://www.karpinski.tech/tags/nextcloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Feb 2023 12:24:36 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nextcloud/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Domowy serwerk</title>
-      <link>https://www.karpinski.tech/projekty/02.serwer/</link>
+      <link>http://localhost:1313/projekty/02.serwer/</link>
       <pubDate>Sun, 05 Feb 2023 12:24:36 +0100</pubDate>
-      
-      <guid>https://www.karpinski.tech/projekty/02.serwer/</guid>
+      <guid>http://localhost:1313/projekty/02.serwer/</guid>
       <description>Opis projektu domowego serwera plików z wykorzystaniem NextCloud</description>
     </item>
-    
   </channel>
 </rss>
