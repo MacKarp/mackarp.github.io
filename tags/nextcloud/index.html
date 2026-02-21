@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" dir="auto">
+<html lang="pl" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 <meta name="description" content="Strona osobista Macieja Karpińskiego!">
 <meta name="author" content="Maciej Karpiński">
 <link rel="canonical" href="https://www.karpinski.tech/tags/nextcloud/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://www.karpinski.tech/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.karpinski.tech/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.karpinski.tech/favicon-32x32.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://www.karpinski.tech/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://www.karpinski.tech/tags/nextcloud/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://www.karpinski.tech/tags/nextcloud/index.xml" title="rss">
 <link rel="alternate" hreflang="pl" href="https://www.karpinski.tech/tags/nextcloud/">
 <noscript>
     <style>
@@ -40,23 +40,38 @@
                 --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
+            .toc {
+                background: var(--entry);
             }
+        }
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
             }
         }
 
     </style>
-</noscript><meta property="og:url" content="https://www.karpinski.tech/tags/nextcloud/">
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://www.karpinski.tech/tags/nextcloud/">
   <meta property="og:site_name" content="Maciej Karpiński">
   <meta property="og:title" content="Nextcloud">
   <meta property="og:description" content="Strona osobista Macieja Karpińskiego!">
@@ -67,20 +82,8 @@
 <meta name="twitter:description" content="Strona osobista Macieja Karpińskiego!">
 
 </head>
-
 <body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
+    <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://www.karpinski.tech/" accesskey="h" title="Maciej Karpiński (Alt + H)">Maciej Karpiński</a>
@@ -144,13 +147,13 @@ Wymagania pracy dyplomowej:
 System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Serwer e-booków Serwer plików z możliwością konwersji audio i wideo Hardware Chciałem, żeby urządzenie było w miarę kompaktowe i energooszczędne, więc początkowo rozglądałem się za płytami głównymi w formacie mini i nano ITX, ale wtedy trafiłem na kilka artykułów i filmów przedstawiających realizację podobnych projektów na RaspberryPi. Wcześniej nie miałem okazji „pobawić” się SBC – zawsze uważałem je za gadżet więc i nie wiedziałem jak bardzo pod względem możliwości rozwinęła się ta część IT. Wybór SBC powodował, że jednocześnie miałem załatwioną kwestię niskiego zużycia energii i zachowania kompaktowych wymiarów, z drugiej strony SBC często wykorzystują procesory o architekturze ARM a ta poza telefonami z androidem była dla mnie zupełnie nieznana. Zmiana architektury nie byłaby dla mnie minus a wręcz plusem, w końcu mógłbym zrobić coś nowego niż złożenie kolejnego zestawu na x86-64, poprzedni raz taką zmianę w architekturze dokonałem w okolicach 2000r gdzie przesiadłem się z Amigi 600 na PC. Dużym minusem wszystkich SBC, jakie oglądałem była mała liczba (max 2) lub całkowity brak portów SATA, co uniemożliwiało utworzenie sensownej macierzy dyskowej, a którą mimo braku w wymaganiach chciałem mieć. Szukając informacji jak sensownie podłączyć (nie przez USB!) większą ilość dysków trafiłem na SBC RockPi4 i nakładki Quad i Penta SATA Kit, obie nakładki pozwalają na podłączenie 4 dysków(5 w przypadku Penta) co już pozwala na utworzenie macierzy RAID 5, a to już mnie zadowalało. Kolejnym elementem był wybór twardych dysków, chciałem, żeby były to dyski 2,5” i żeby cena za 1GB była jak najmniejsza. Wybór padł więc na dedykowane dla systemów NAS dyski WD Red Plus o pojemności 1TB z myślą o przyszłej wymianie na pojemniejsze dyski SSD – gdy ich ceny będą korzystniejsze.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-02-05 12:24:36 +0100 CET'>niedziela 5 lutego 2023</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;894 słów&nbsp;·&nbsp;Maciej Karpiński</footer>
+  <footer class="entry-footer"><span title='2023-02-05 12:24:36 +0100 CET'>niedziela 5 lutego 2023</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>894 słów</span>&nbsp;·&nbsp;<span>Maciej Karpiński</span></footer>
   <a class="entry-link" aria-label="post link to Domowy serwerk" href="https://www.karpinski.tech/projekty/02.serwer/"></a>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://www.karpinski.tech/">Maciej Karpiński</a></span> · 
+        <span>&copy; 2026 <a href="https://www.karpinski.tech/">Maciej Karpiński</a></span> · 
 
     <span>
         Powered by
@@ -165,9 +168,14 @@ System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Se
 </a>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -208,11 +216,12 @@ System operacyjny: Linux Serwer multimediów (strumieniowanie muzyki/filmów) Se
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })
