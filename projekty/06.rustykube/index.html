@@ -10,7 +10,7 @@
 <meta name="description" content="Prosta aplikacja napisana w języku Rust do celów eksperymentu z Kubernetesem">
 <meta name="author" content="Maciej Karpiński">
 <link rel="canonical" href="https://www.karpinski.tech/projekty/06.rustykube/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d92d9aa382a827dda21bf1377e9203e27a444da2e8b4ef76913833adb6d6ba15.css" integrity="sha256-2S2ao4KoJ92iG/E3fpID4npETaLotO92kTgzrbbWuhU=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://www.karpinski.tech/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.karpinski.tech/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.karpinski.tech/favicon-32x32.png">
@@ -51,12 +51,6 @@
             }
         }
 
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
     </style>
 </noscript>
 <script>
@@ -74,7 +68,7 @@
   <meta property="og:site_name" content="Maciej Karpiński">
   <meta property="og:title" content="RustyKube">
   <meta property="og:description" content="Prosta aplikacja napisana w języku Rust do celów eksperymentu z Kubernetesem">
-  <meta property="og:locale" content="pl-PL">
+  <meta property="og:locale" content="pl_PL">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projekty">
     <meta property="article:published_time" content="2023-06-28T18:09:28+02:00">
@@ -84,9 +78,10 @@
     <meta property="article:tag" content="Google Cloud">
     <meta property="article:tag" content="Rust">
     <meta property="article:tag" content="WWW">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RustyKube">
-<meta name="twitter:description" content="Prosta aplikacja napisana w języku Rust do celów eksperymentu z Kubernetesem">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="RustyKube">
+  <meta name="twitter:description" content="Prosta aplikacja napisana w języku Rust do celów eksperymentu z Kubernetesem">
 
 
 <script type="application/ld+json">
@@ -145,17 +140,17 @@
 </head>
 <body id="top">
     <header class="header">
-    <nav class="nav">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://www.karpinski.tech/" accesskey="h" title="Maciej Karpiński (Alt + H)">Maciej Karpiński</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -171,7 +166,7 @@
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://www.karpinski.tech/projekty/" title="Projekty">
                     <span>Projekty</span>
@@ -194,40 +189,51 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://www.karpinski.tech/">Strona Główna</a>&nbsp;»&nbsp;<a href="https://www.karpinski.tech/projekty/">Projekty</a></div>
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">Strona Główna</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/projekty/">Projekty</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
     <h1 class="post-title entry-hint-parent">
       RustyKube
     </h1>
     <div class="post-description">
       Prosta aplikacja napisana w języku Rust do celów eksperymentu z Kubernetesem
     </div>
-    <div class="post-meta"><span title='2023-06-28 18:09:28 +0200 CEST'>środa 28 czerwca 2023</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>383 słów</span>&nbsp;·&nbsp;<span>Maciej Karpiński</span>
+    <div class="post-meta">
+
+<span title='2023-06-28 18:09:28 +0200 CEST'>środa 28 czerwca 2023</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>383 słów</span>&nbsp;·&nbsp;<span>Maciej Karpiński</span>
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Spis treści</span>
-        </summary>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Spis treści</span>
+    </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#kubernetes" aria-label="Kubernetes">Kubernetes</a></li>
-                <li>
-                    <a href="#baza-danych" aria-label="Baza danych">Baza danych</a></li>
-                <li>
-                    <a href="#backend" aria-label="Backend">Backend</a></li>
-                <li>
-                    <a href="#frontend" aria-label="Frontend">Frontend</a></li>
-                <li>
-                    <a href="#repozytorium" aria-label="Repozytorium">Repozytorium</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
+    <div class="inner"><ul>
+            <li>
+                <a href="#kubernetes" aria-label="Kubernetes">Kubernetes</a></li>
+            <li>
+                <a href="#baza-danych" aria-label="Baza danych">Baza danych</a></li>
+            <li>
+                <a href="#backend" aria-label="Backend">Backend</a></li>
+            <li>
+                <a href="#frontend" aria-label="Frontend">Frontend</a></li>
+            <li>
+                <a href="#repozytorium" aria-label="Repozytorium">Repozytorium</a>
+            </li>
+        </ul>
+    </div>
+</details>
 
-  <div class="post-content"><p>RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.</p>
+  <div class="post-content md-content"><p>RustyKube to prosta aplikacja napisana w języku Rust, jej celem było przede wszystkim zaznajomienie się z technologią Kubernetes. Aplikacja składa się z trzech części: bazy danych, backendu i frontendu.</p>
 <h2 id="kubernetes">Kubernetes<a hidden class="anchor" aria-hidden="true" href="#kubernetes">#</a></h2>
 <p>Zainteresowałem się skalowaniem aplikacji i postanowiłem pobawić się technologią Kubernetes, mogłem oczywiście uruchomić jakąś przykładową aplikację ale stwierdziłem że wolę napisać swoją prostą aplikację, w której będę mógł dorzucić sobie jakieś dodatkowe dane, gdybym miał potrzebę a i w przyszłości, gdyby zainteresowała by mnie jakaś technologia to mógłbym sobie ją zmodyfikować 🙂
 Aplikacja jest uruchomiona na platformie <a href="https://cloud.google.com/">Google Cloud</a> przy pomocy <a href="https://cloud.google.com/kubernetes-engine">Google Kubernetes Engine</a>. Aplikacja posiada skonfigurowany CI/CD więc każda aktualizacja w repozytorium powoduje automatyczne wdrożenie w GCP.</p>
@@ -322,15 +328,19 @@ Aplikacja jest uruchomiona na platformie <a href="https://cloud.google.com/">Goo
 <footer class="footer">
         <span>&copy; 2026 <a href="https://www.karpinski.tech/">Maciej Karpiński</a></span> · 
 
+    
+    
     <span>
         Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a>
 
@@ -369,14 +379,13 @@ Aplikacja jest uruchomiona na platformie <a href="https://cloud.google.com/">Goo
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
